@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>International Languages Elementary (ILE) Program</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script src="../../resources/js/bundle.js"></script>
+    <script src="./config.min.js"></script>
+</head>
+
+<body ng-app="angular-app" ng-controller="reportcard" ng-init="init();" class="reportcard">
+
+<div id="main" class="main" ng-hide>
+    <div ng-if="authenticated">
+        <div class="loader" data-loading></div>
+        <div ng-view></div>
+    </div>
+</div>
+
+</body>
+
+</html>

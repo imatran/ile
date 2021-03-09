@@ -1,0 +1,273 @@
+<form class="edit" role="form" ng-submit="submit()">
+    <img src="/ile/resources/images/reportcard.png" class="image" />
+
+    <div class="tool">
+        <!--<a href="" ng-click="popup()" title="Suggestions"><i class="glyphicon glyphicon-list-alt"></i></a>-->
+        <a href="" ng-click="submit()" title="Save" id="save-btn"><i class="glyphicon glyphicon-floppy-disk"></i></a>
+    </div>
+
+    <div class="back">
+        <a href="#!/list" title="List"><i class="glyphicon glyphicon-arrow-left"></i></a>
+    </div>
+
+    <div class="name">{{report.name}}</div>
+    <div class="oen">{{formatOEN(report.oen)}}</div>
+    <div class="center">{{report.center}}</div>
+    <div class="instructor">{{report.instructor}}</div>
+
+    <div class="absent-1">
+        <ui-select ng-model="report.absent_1" search-enabled="false">
+            <ui-select-match>
+                {{$select.selected}}
+            </ui-select-match>
+            <ui-select-choices repeat="x in absentChoices">
+                {{x || "&nbsp;"}}
+            </ui-select-choices>
+        </ui-select>
+    </div>
+
+    <div class="absent-2">
+        <ui-select ng-model="report.absent_2" search-enabled="false">
+            <ui-select-match>
+                {{$select.selected}}
+            </ui-select-match>
+            <ui-select-choices repeat="x in absentChoices">
+                {{x || "&nbsp;"}}
+            </ui-select-choices>
+        </ui-select>
+    </div>
+
+    <div class="skill-11">
+        <ui-select ng-model="report.skill_11" search-enabled="false">
+            <ui-select-match>
+                {{$select.selected}}
+            </ui-select-match>
+            <ui-select-choices repeat="x in skillChoices">
+                {{x || "&nbsp;"}}
+            </ui-select-choices>
+        </ui-select>
+    </div>
+
+    <div class="skill-12">
+        <ui-select ng-model="report.skill_12" search-enabled="false">
+            <ui-select-match>
+                {{$select.selected}}
+            </ui-select-match>
+            <ui-select-choices repeat="x in skillChoices">
+                {{x || "&nbsp;"}}
+            </ui-select-choices>
+        </ui-select>
+    </div>
+
+    <div class="skill-21">
+        <ui-select ng-model="report.skill_21" search-enabled="false">
+            <ui-select-match>
+                {{$select.selected}}
+            </ui-select-match>
+            <ui-select-choices repeat="x in skillChoices">
+                {{x || "&nbsp;"}}
+            </ui-select-choices>
+        </ui-select>
+    </div>
+
+    <div class="skill-22">
+        <ui-select ng-model="report.skill_22" search-enabled="false">
+            <ui-select-match>
+                {{$select.selected}}
+            </ui-select-match>
+            <ui-select-choices repeat="x in skillChoices">
+                {{x || "&nbsp;"}}
+            </ui-select-choices>
+        </ui-select>
+    </div>
+
+    <div class="skill-31">
+        <ui-select ng-model="report.skill_31" search-enabled="false">
+            <ui-select-match>
+                {{$select.selected}}
+            </ui-select-match>
+            <ui-select-choices repeat="x in skillChoices">
+                {{x || "&nbsp;"}}
+            </ui-select-choices>
+        </ui-select>
+    </div>
+
+    <div class="skill-32">
+        <ui-select ng-model="report.skill_32" search-enabled="false">
+            <ui-select-match>
+                {{$select.selected}}
+            </ui-select-match>
+            <ui-select-choices repeat="x in skillChoices">
+                {{x || "&nbsp;"}}
+            </ui-select-choices>
+        </ui-select>
+    </div>
+
+    <div class="skill-41">
+        <ui-select ng-model="report.skill_41" search-enabled="false">
+            <ui-select-match>
+                {{$select.selected}}
+            </ui-select-match>
+            <ui-select-choices repeat="x in skillChoices">
+                {{x || "&nbsp;"}}
+            </ui-select-choices>
+        </ui-select>
+    </div>
+
+    <div class="skill-42">
+        <ui-select ng-model="report.skill_42" search-enabled="false">
+            <ui-select-match>
+                {{$select.selected}}
+            </ui-select-match>
+            <ui-select-choices repeat="x in skillChoices">
+                {{x || "&nbsp;"}}
+            </ui-select-choices>
+        </ui-select>
+    </div>
+
+    <div class="oral-g1">
+        <ui-select ng-model="report.oral_g1" search-enabled="false">
+            <ui-select-match>
+                {{$select.selected}}
+            </ui-select-match>
+            <ui-select-choices repeat="x in gradeChoices">
+                {{x || "&nbsp;"}}
+            </ui-select-choices>
+        </ui-select>
+    </div>
+
+    <div class="oral-g2">
+        <ui-select ng-model="report.oral_g2" search-enabled="false">
+            <ui-select-match>
+                {{$select.selected}}
+            </ui-select-match>
+            <ui-select-choices repeat="x in gradeChoices">
+                {{x || "&nbsp;"}}
+            </ui-select-choices>
+        </ui-select>
+    </div>
+
+    <div class="oral-c1">
+        <textarea ng-model="report.oral_c1" class="form-control"></textarea>
+    </div>
+
+    <div class="oral-c2">
+        <textarea ng-model="report.oral_c2" class="form-control"></textarea>
+    </div>
+
+
+    <div class="reading-g1">
+        <ui-select ng-model="report.reading_g1" search-enabled="false">
+            <ui-select-match>
+                {{$select.selected}}
+            </ui-select-match>
+            <ui-select-choices repeat="x in gradeChoices">
+                {{x || "&nbsp;"}}
+            </ui-select-choices>
+        </ui-select>
+    </div>
+
+    <div class="reading-g2">
+        <ui-select ng-model="report.reading_g2" search-enabled="false">
+            <ui-select-match>
+                {{$select.selected}}
+            </ui-select-match>
+            <ui-select-choices repeat="x in gradeChoices">
+                {{x || "&nbsp;"}}
+            </ui-select-choices>
+        </ui-select>
+    </div>
+
+    <div class="reading-c1">
+        <textarea ng-model="report.reading_c1" class="form-control"></textarea>
+    </div>
+
+    <div class="reading-c2">
+        <textarea ng-model="report.reading_c2" class="form-control"></textarea>
+    </div>
+
+
+    <div class="writing-g1">
+        <ui-select ng-model="report.writing_g1" search-enabled="false">
+            <ui-select-match>
+                {{$select.selected}}
+            </ui-select-match>
+            <ui-select-choices repeat="x in gradeChoices">
+                {{x || "&nbsp;"}}
+            </ui-select-choices>
+        </ui-select>
+    </div>
+
+    <div class="writing-g2">
+        <ui-select ng-model="report.writing_g2" search-enabled="false">
+            <ui-select-match>
+                {{$select.selected}}
+            </ui-select-match>
+            <ui-select-choices repeat="x in gradeChoices">
+                {{x || "&nbsp;"}}
+            </ui-select-choices>
+        </ui-select>
+    </div>
+
+    <div class="writing-c1">
+        <textarea ng-model="report.writing_c1" class="form-control"></textarea>
+    </div>
+
+    <div class="writing-c2">
+        <textarea ng-model="report.writing_c2" class="form-control"></textarea>
+    </div>
+
+    <div class="date-t1">
+        <input type="text" id="datepicker1" ng-model="report.date_t1" class="form-control" data-id="t1" readonly>
+        <a href="" ng-click="clearDate('t1')" ng-show="report.date_t1" class="clear-date-t1"><i class="glyphicon glyphicon-remove"></i></a>
+    </div>
+
+    <div class="signature-t1" ng-show="report.signature_t1">
+        <img src="/ile/resources/images/{{report.signature_t1}}"/>
+    </div>
+
+    <div class="date-t2">
+        <input type="text" id="datepicker2" ng-model="report.date_t2" class="form-control" data-id="t2" readonly>
+        <a href="" ng-click="clearDate('t2')" ng-show="report.date_t2" class="clear-date-t2"><i class="glyphicon glyphicon-remove"></i></a>
+    </div>
+
+    <div class="signature-t2" ng-hide="!report.date_t2">
+        <img src="/ile/resources/images/{{report.signature_t2}}"/>
+    </div>
+</form>
+
+<script type="text/ng-template" id="suggests.html">
+    <div class="movable-modal">
+        <div class = "modal-header">
+            <button type="button" class="close" datadismiss="modal" aria-hidden="true" ng-click="cancel()">&times;</button>
+            <div>Comment suggestions</div>
+        </div>
+        <div class="modal-body">
+            <div>
+                <input type="text" ng-model="suggestion.name" class="form-control">
+            </div>
+
+            <div class="col-md-4">
+                <ui-select ng-model="suggestion.gender" search-enabled="true" ng-change="select($select.selected)">
+                    <ui-select-match>
+                        {{$select.selected}}
+                    </ui-select-match>
+                    <ui-select-choices repeat="x in ['Male', 'Female']">
+                        {{x}}
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+
+            <div>
+                <ui-select ng-model="modal.suggestion" search-enabled="true" ng-change="select($select.selected)">
+                    <ui-select-match>
+                        {{$select.selected}}
+                    </ui-select-match>
+                    <ui-select-choices repeat="x in suggestions">
+                        {{x}}
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+    </div>
+</script>
