@@ -1,0 +1,402 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: serif;
+    font-size: 18px;
+    line-height: unset;
+}
+
+.reportcard {
+    .main {
+        width: 100%;
+        height: 100%;
+    }
+
+    .header {
+        margin: 20px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.8;
+    }
+
+    .list, .view, .edit {
+        position: relative;
+        width: 920px;
+        margin: 0 auto;
+    }
+
+    .view, .edit {
+        > div {
+            position: absolute;
+        }
+    }
+
+    .list .table {
+        width: 720px;
+        margin: 0 auto;
+        border: 1px solid #9d9d9d;
+    }
+
+    .image {
+        width: 100%;
+    }
+
+    .name {
+        top: 106px;
+        left: 150px;
+    }
+
+    .oen {
+        top: 131px;
+        left: 150px;
+    }
+
+    .center {
+        top: 118px;
+        left: 516px;
+        width: 320px;
+    }
+
+    .instructor {
+        top: 161px;
+        left: 165px;
+    }
+
+    /** absents **/
+    div[class*="absent-"] {
+        top: 161px;
+        width: 46px;
+        text-align: center;
+    }
+
+    .absent-1 {
+        left: 589px;
+    }
+
+    .absent-2 {
+        left: 812px;
+    }
+
+    /** skill 1 - responsibility **/
+    div[class*="skill-"] {
+        width: 50px;
+        text-align: center;
+    }
+
+    div[class*="skill-1"] {
+        top: 218px;
+    }
+
+    .skill-11 {
+        left: 738px;
+    }
+
+    .skill-12 {
+        left: 805px;
+    }
+
+    /** skill 2 - independent **/
+    div[class*="skill-2"] {
+        top: 258px;
+    }
+
+    .skill-21 {
+        left: 738px;
+    }
+
+    .skill-22 {
+        left: 805px;
+    }
+
+    /** skill 3 - initiative **/
+    div[class*="skill-3"] {
+        top: 298px;
+    }
+
+    .skill-31 {
+        left: 738px;
+    }
+
+    .skill-32 {
+        left: 805px;
+    }
+
+    /** skill 4 - collaboration **/
+    div[class*="skill-4"] {
+        top: 340px;
+    }
+
+    .skill-41 {
+        left: 738px;
+    }
+
+    .skill-42 {
+        left: 805px;
+    }
+
+    div[class*="-g1"], div[class*="-g2"] {
+        width: 50px;
+        text-align: center;
+    }
+
+    div[class*="-c1"], div[class*="-c2"] {
+        font-size: 16px;
+    }
+
+    /** oral communication **/
+    div[class*="oral-g"] {
+        top: 513px;
+    }
+
+    div[class*="oral-c"] {
+        top: 438px;
+    }
+
+    .oral-g1 {
+        left: 204px;
+    }
+
+    .oral-g2 {
+        left: 271px;
+    }
+
+    .oral-c1 {
+        left: 336px;
+        width: 250px;
+    }
+
+    .oral-c2 {
+        left: 599px;
+        width: 257px;
+    }
+
+    /** reading **/
+    div[class*="reading-g"] {
+        top: 693px;
+    }
+
+    div[class*="reading-c"] {
+        top: 619px;
+    }
+
+    .reading-g1 {
+        left: 204px;
+    }
+
+    .reading-g2 {
+        left: 271px;
+    }
+
+    .reading-c1 {
+        left: 336px;
+        width: 250px;
+    }
+
+    .reading-c2 {
+        left: 599px;
+        width: 257px;
+    }
+
+    /** writing **/
+    div[class*="writing-g"] {
+        top: 874px;
+    }
+
+    div[class*="writing-c"] {
+        top: 801px;
+    }
+
+    .writing-g1 {
+        left: 204px;
+    }
+
+    .writing-g2 {
+        left: 271px;
+    }
+
+    .writing-c1 {
+        left: 336px;
+        width: 250px;
+    }
+
+    .writing-c2 {
+        left: 599px;
+        width: 257px;
+    }
+
+    .edit {
+        div[class*="absent-"] {
+            top: 159px;
+        }
+
+        div[class*="skill-1"] {
+            top: 217px;
+        }
+
+        div[class*="skill-2"] {
+            top: 257px;
+        }
+
+        div[class*="skill-3"] {
+            top: 297px;
+        }
+
+        div[class*="skill-4"] {
+            top: 337px;
+        }
+
+        div[class*="oral-c"] {
+            top: 436px;
+        }
+
+        .oral-c1 {
+            left: 332px;
+            width: 258px;
+        }
+
+        .oral-c2 {
+            left: 595px;
+            width: 264px;
+        }
+
+        div[class*="reading-c"] {
+            top: 617px;
+        }
+
+        .reading-c1 {
+            left: 332px;
+            width: 258px;
+        }
+
+        .reading-c2 {
+            left: 595px;
+            width: 264px;
+        }
+
+        div[class*="writing-c"] {
+            top: 799px;
+        }
+
+        .writing-c1 {
+            left: 332px;
+            width: 258px;
+        }
+
+        .writing-c2 {
+            left: 595px;
+            width: 264px;
+        }
+
+        textarea {
+            height: 174px;
+            padding: 0 4px;
+            resize: none;
+            font-size: 16px;
+            line-height: 20px;
+            border-radius: unset;
+        }
+
+        .clear-date-t1, .clear-date-t2 {
+            position: relative;
+            top: -22px;
+            left: 150px;
+
+            .glyphicon {
+                font-size: 14px;
+                -webkit-text-stroke: 1px white;
+            }
+        }
+
+        .ui-select-bootstrap {
+            .ui-select-toggle > .caret {
+                right: 6px;
+            }
+
+            .ui-select-dropdown.dropdown-menu {
+                min-width: 60px;
+            }
+
+            .ui-select-match.btn-default-focus {
+                outline-offset: -4px;
+            }
+
+            .ui-select-choices-row > span {
+                line-height: 1.3;
+            }
+        }
+
+        .disabled {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+    }
+
+    /** signature **/
+    div[class*="date-t"] {
+        top: 1102px;
+        width: 170px;
+    }
+
+    div[class*="signature-t"] {
+        top: 1131px;
+    }
+
+    .date-t1, .signature-t1 {
+        left: 210px;
+    }
+
+    .date-t2, .signature-t2 {
+        left: 608px;
+    }
+
+    div[class*="signature-"] img {
+        height: 28px;
+    }
+
+    .form-control {
+        height: 22px;
+        padding: 1px 12px;
+    }
+
+    .form-control[readonly] {
+        background-color: unset;
+    }
+
+    .form-control.ui-select-search-hidden {
+        height: 0;
+    }
+
+    .tool {
+        top: 80px;
+        right: 60px;
+    }
+
+    .tool * {
+        padding-left: 4px;
+    }
+
+    .back {
+        top: 80px;
+        left: 60px;
+    }
+
+    .table>tbody>tr>td {
+        line-height: unset;
+    }
+
+    .ui-datepicker.ui-widget {
+        font-size: 14px;
+    }
+}
+
+/*.modal .form-control {*/
+    /*height: 32px;*/
+    /*!*padding: 1px 12px;*!*/
+/*}*/
+
+/*.modal .modal-header {*/
+    /*font-size: 18px;*/
+/*}*/
