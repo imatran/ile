@@ -1,10 +1,13 @@
 const { app } = require('./angular-app.js');
+const { __url, __key } = require('./airtable-secret.js');
 
 (() => {
     const factory = ($q, $http, AirtableService, AppUtil) => {
 
         let service = {},
             config = {
+                url: __url.vietngu,
+                key: __key,
                 tables: {
                     student: {
                         fields: [ 'oen', 'name', 'lang', 'active' ]
@@ -54,6 +57,9 @@ const { app } = require('./angular-app.js');
             return deferred.promise;
         };
 
+        /**
+         * getReport
+         */
         service.getReport = (refId) => {
             let deferred = $q.defer();
 
@@ -75,7 +81,7 @@ const { app } = require('./angular-app.js');
                     fields: getPayload(report)
                 };
 
-            AirtableService.createData('reportcard', data)
+            AirtableService.createData('reportcard', config, data)
                 .then(data => {
                     report.refId = data.id;
                     deferred.resolve();
@@ -92,7 +98,7 @@ const { app } = require('./angular-app.js');
                 fields: getPayload(report)
             };
 
-            return AirtableService.updateData('reportcard', refId, data);
+            return AirtableService.updateData('reportcard', config, refId, data);
         };
 
         const parseReport = (report) => {

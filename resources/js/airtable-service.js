@@ -1,5 +1,4 @@
 const { app } = require('./angular-app.js');
-const { __url, __key } = require('./airtable-secret.js');
 
 (() => {
     const factory = ($q, $http, DelayHttp) => {
@@ -17,7 +16,7 @@ const { __url, __key } = require('./airtable-secret.js');
          */
         service.getData = (table, config, refId) => {
             let deferred = $q.defer(),
-                url = `${__url}/${table}${refId ? '/' + refId : ''}?api_key=${__key}`,
+                url = `${config.url}/${table}${refId ? '/' + refId : ''}?api_key=${config.key}`,
                 results = [];
 
             let loadURL = (url, offset) => {
@@ -93,15 +92,16 @@ const { __url, __key } = require('./airtable-secret.js');
          * createData
          *
          * @param table
+         * @param config
          * @param data
          *
          * @returns {*|void}
          */
-        service.createData = (table, data) => {
+        service.createData = (table, config, data) => {
             let deferred = $q.defer();
 
             $http({
-                url: `${__url}/${table}?api_key=${__key}`,
+                url: `${config.url}/${table}?api_key=${config.key}`,
                 method: 'POST',
                 data: data
             })
@@ -124,16 +124,17 @@ const { __url, __key } = require('./airtable-secret.js');
          * updateData
          *
          * @param table
+         * @param config
          * @param data
          * @param refId
          *
          * @returns {*|void}
          */
-        service.updateData = (table, refId, data) => {
+        service.updateData = (table, config, refId, data) => {
             let deferred = $q.defer();
 
             $http({
-                url: `${__url}/${table}/${refId}?api_key=${__key}`,
+                url: `${config.url}/${table}/${refId}?api_key=${config.key}`,
                 method: 'PUT',
                 data: data
             })
@@ -156,15 +157,16 @@ const { __url, __key } = require('./airtable-secret.js');
          * deleteData
          *
          * @param table
+         * @param config
          * @param refId
          *
          * @returns {*|void}
          */
-        service.deleteData = (table, refId) => {
+        service.deleteData = (table, config, refId) => {
             let deferred = $q.defer();
 
             $http({
-                url: `${__url}/${table}/${refId}?api_key=${__key}`,
+                url: `${config.url}/${table}/${refId}?api_key=${config.key}`,
                 method: 'DELETE'
             })
                 .then(

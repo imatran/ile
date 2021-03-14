@@ -47,7 +47,7 @@ module.exports = { app: app };
          * @return {boolean}
          */
         util.isEmpty = (str) => {
-            return !Boolean(str);
+            return str !== 0 && !Boolean(str);
         };
 
         /**
@@ -57,7 +57,7 @@ module.exports = { app: app };
          * @param keys
          */
         util.pick = (obj, ...keys) => {
-            return keys.reduce((o, k) => (obj[k] && (o[k] = obj[k]), o), {});
+            return keys.reduce((o, k) => (!util.isEmpty(obj[k]) && (o[k] = obj[k]), o), {});
         };
 
         /**
