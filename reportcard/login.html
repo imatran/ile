@@ -1,0 +1,22 @@
+<div class="login">
+    <ng-include src="'../../reportcard/header.html'"></ng-include>
+
+    <form role="form" ng-submit="login()">
+        <div class="form">
+            <div class="email">
+                <label>Email:</label>
+
+                <div>
+                    <input type="email" ng-model="profile.email" required>
+                    <div ng-if="noaccess" class="noaccess">
+                        Oops! You don't have access to this page.
+                    </div>
+                </div>
+            </div>
+
+            <div class="submit">
+                <button class="btn btn-primary" type="submit">Login</button>
+            </div>
+        </div>
+   </form>
+</div>

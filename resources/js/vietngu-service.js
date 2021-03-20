@@ -1,13 +1,13 @@
 const { app } = require('./angular-app.js');
-const { __url, __key } = require('./airtable-secret.js');
+const { airtable } = require('./app-secret.js');
 
 (() => {
     const factory = ($q, $http, AirtableService, AppUtil) => {
 
         let service = {},
             config = {
-                url: __url.vietngu,
-                key: __key,
+                url: airtable.url.vietngu,
+                key: airtable.key,
                 tables: {
                     student: {
                         fields: [ 'oen', 'name', 'lang', 'active' ]

@@ -1,4 +1,5 @@
 const { app } = require('resources/js/angular-app.js');
+const { profiles } = require('resources/js/app-secret.js');
 
 require('resources/js/airtable-service.js');
 require('resources/js/vietngu-service.js');
@@ -12,6 +13,7 @@ require('./reportcard.scss');
         $scope.init = () => {
             $scope.dateFormat = "yy-mm-dd";
             $scope.refresh = false;
+            $scope.profile = {};
 
             //assign user configs
             Object.assign($scope, apputil.pick(_config, 'absentChoices', 'skillChoices', 'gradeChoices', 'commentChoices'));
@@ -23,7 +25,35 @@ require('./reportcard.scss');
             refresh();
 
             //handle login
-            login();
+            $scope.login();
+        };
+
+        /**
+         * login
+         */
+        $scope.login = () => {
+            let authenticated = $scope.authenticated || sessionStorage.getItem('authenticated'),
+                profile = $scope.profile.email;
+
+            if(!authenticated) {
+                if(!profile) {
+                    location.hash = '#!/login'
+                } else {
+                    if(profiles.includes(profile)) {
+                        sessionStorage.setItem('authenticated', 'true');
+                        authenticated = true;
+                    } else {
+                        $scope.noaccess = true;
+                    }
+                }
+            }
+
+            if(authenticated) {
+                loadData()
+                    .then(() => {
+                        location.hash = '#!/list';
+                    });
+            }
         };
 
         /**
@@ -199,7 +229,7 @@ require('./reportcard.scss');
         const refresh = () => {
             //handle browser refresh
             if(!$scope.report) {
-                location.hash = '#!/list';
+                location.hash = '#!/login';
                 history.pushState(null,  document.title, location.href);
             }
 
@@ -221,7 +251,7 @@ require('./reportcard.scss');
                                 $scope.report = report;
                             });
                     } else {
-                        location.hash = '#!/list';
+                        location.hash = '#!/login';
                     }
 
                     $scope.refresh = !refresh;
@@ -265,6 +295,9 @@ require('./reportcard.scss');
         const context = location.pathname.split('/')[1];
 
         $routeProvider.
+        when('/list', {
+            templateUrl: `/${context}/reportcard/list.html`
+        }).
         when('/view', {
             templateUrl: `/${context}/reportcard/view.html`
         }).
@@ -272,7 +305,7 @@ require('./reportcard.scss');
             templateUrl: `/${context}/reportcard/edit.html`
         }).
         otherwise({
-            templateUrl: `/${context}/reportcard/list.html`
+            templateUrl: `/${context}/reportcard/login.html`
         });
     };
 

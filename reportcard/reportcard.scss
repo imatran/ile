@@ -22,7 +22,7 @@ html, body {
         line-height: 1.8;
     }
 
-    .list, .view, .edit {
+    .login, .list, .view, .edit {
         position: relative;
         width: 920px;
         margin: 0 auto;
@@ -31,6 +31,38 @@ html, body {
     .view, .edit {
         > div {
             position: absolute;
+        }
+    }
+
+    .login {
+        .form {
+            width: 300px;
+            margin: 30px auto;
+
+            .email {
+                display: inline-flex;
+
+                label {
+                    width: 64px;
+                    margin-top: 4px;
+                }
+
+                input {
+                    width: 236px;
+                    padding: 3px 8px;
+                }
+            }
+
+            .noaccess {
+                margin-top: 5px;
+                color: #ff0000;
+                font-size: 14px;
+            }
+
+            .submit {
+                float: right;
+                margin-top: 10px;
+            }
         }
     }
 

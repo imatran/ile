@@ -4,4 +4,4 @@
 *.iml
 node_modules
 package-lock.json
-resources/js/airtable-secret.*
+resources/js/app-secret.*
