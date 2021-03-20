@@ -19,7 +19,7 @@ require('./reportcard.scss');
             Object.assign($scope, apputil.pick(_config, 'absentChoices', 'skillChoices', 'gradeChoices', 'commentChoices'));
 
             //fix ui issues
-            apputil.fixme();
+            apputil.fixui();
 
             //handle refresh
             refresh();
@@ -32,14 +32,14 @@ require('./reportcard.scss');
          * login
          */
         $scope.login = () => {
-            let authenticated = $scope.authenticated || sessionStorage.getItem('authenticated'),
+            let authenticated = Boolean(sessionStorage.getItem('authenticated')),
                 profile = $scope.profile.email;
 
             if(!authenticated) {
                 if(!profile) {
                     location.hash = '#!/login'
                 } else {
-                    if(profiles.includes(profile)) {
+                    if(profiles.includes(btoa(profile))) {
                         sessionStorage.setItem('authenticated', 'true');
                         authenticated = true;
                     } else {
@@ -211,19 +211,6 @@ require('./reportcard.scss');
             }
 
             return deferred.promise;
-        };
-
-        const login = () => {
-            const authenticated = $scope.authenticated || sessionStorage.getItem('authenticated');
-            const context = location.pathname.split('/')[1];
-
-            if(!authenticated) {
-                sessionStorage.setItem('entryPage', location.pathname);
-                location.href = `/${context}/login/login.html`
-            } else {
-                $scope.authenticated = true;
-                loadData();
-            }
         };
 
         const refresh = () => {

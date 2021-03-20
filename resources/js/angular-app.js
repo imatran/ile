@@ -63,7 +63,7 @@ module.exports = { app: app };
         /**
          * Fixes ui-select on clicking the caret to
          */
-        util.fixme = () => {
+        util.fixui = () => {
             //fix for clicking the caret on ui-select
             $("body").on('click', '.ui-select-toggle>i.caret', (e) => {
                 e.stopPropagation();
