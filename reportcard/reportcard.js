@@ -49,6 +49,7 @@ require('./reportcard.scss');
             }
 
             if(authenticated) {
+                $scope.authenticated = true;
                 loadData()
                     .then(() => {
                         location.hash = '#!/list';
@@ -125,6 +126,10 @@ require('./reportcard.scss');
             const html2canvas = require('html2canvas');
             const jsPDF = require('jspdf');
 
+            //scroll to top
+            $('html').scrollTop(0, 0);
+
+            //capture screen then print
             html2canvas(document.getElementById('view'), {
                 width: 920
             })
@@ -221,13 +226,13 @@ require('./reportcard.scss');
             }
 
             //handle back button refresh
-            window.onhashchange = (e) => {
+            window.addEventListener('hashchange', (e) => {
                 if((/\/view$/).test(e.newURL) && (/\/edit$/).test(e.oldURL)) {
                     $scope.$apply(() => {
                         $scope.refresh = !$scope.saved;
                     });
                 }
-            };
+            });
 
             //refresh data
             $scope.$watch('refresh', (refresh) => {

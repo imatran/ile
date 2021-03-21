@@ -10,9 +10,13 @@
     <script src="./config.min.js"></script>
 </head>
 
-<body ng-app="angular-app" ng-controller="reportcard" ng-init="init();" class="reportcard">
+<body ng-app="angular-app" ng-controller="reportcard" ng-init="init();" class="reportcard" data-scrolltop>
 
 <div id="main" class="main" ng-hide>
+    <div ng-if="authenticated">
+        <div class="loader" data-loading></div>
+    </div>
+
     <div ng-view></div>
 </div>
 

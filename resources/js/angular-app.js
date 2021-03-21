@@ -16,7 +16,7 @@ const app = angular.module('angular-app', ['ui.bootstrap', 'ui.select', 'ngSanit
 module.exports = { app: app };
 
 (() => {
-    const loading = ($http) => {
+    const directive = ($http) => {
         return {
             restrict: 'A',
 
@@ -32,8 +32,34 @@ module.exports = { app: app };
         };
     };
 
-    loading.$inject = ['$http'];
-    app.directive('loading', loading);
+    directive.$inject = ['$http'];
+    app.directive('loading', directive);
+})();
+
+(() => {
+    const directive = ($window, $document) => {
+        const scrolltop = () => {
+            //scroll to top
+            $('html').scrollTop(0, 0);
+        };
+
+        return {
+            restrict: 'A',
+
+            link: () => {
+                $document.ready(() => {
+                    scrolltop();
+                });
+
+                $window.addEventListener('hashchange', () => {
+                    scrolltop();
+                });
+            }
+        };
+    };
+
+    directive.$inject = ['$window', '$document'];
+    app.directive('scrolltop', directive);
 })();
 
 (() => {
