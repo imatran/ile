@@ -36,7 +36,7 @@ const { app } = require('./angular-app.js');
                             config.tables[table].fields.forEach(field => {
                                 switch(true) {
                                     case field.startsWith('date'):
-                                        value[field] = parseDate(record.fields[field]);
+                                        value[field] = service.parseDate(record.fields[field]);
                                         break;
 
                                     case Array.isArray(record.fields[field]):
@@ -135,7 +135,7 @@ const { app } = require('./angular-app.js');
 
             $http({
                 url: `${config.url}/${table}/${refId}?api_key=${config.key}`,
-                method: 'PUT',
+                method: 'PATCH',
                 data: data
             })
                 .then(
@@ -191,7 +191,7 @@ const { app } = require('./angular-app.js');
          *
          * @returns {Date}
          */
-        let parseDate = (value) => {
+        service.parseDate = (value) => {
             let date = new Date(Date.parse(value));
 
             date.setTime(date.getTime() + date.getTimezoneOffset() * 60 * 1000);
@@ -208,6 +208,7 @@ const { app } = require('./angular-app.js');
             array && array.sort((v1, v2) => {
                 let p1 = typeof v1 === 'object' && property ? v1[property] : v1,
                     p2 = typeof v2 === 'object' && property ? v2[property] : v2;
+
                 return p1 && p2 ? p1.localeCompare(p2) : 0;
             });
         };

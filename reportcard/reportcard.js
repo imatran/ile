@@ -37,7 +37,7 @@ require('./reportcard.scss');
 
             if(!authenticated) {
                 if(!profile) {
-                    location.hash = '#!/login'
+                    location.hash = '/login'
                 } else {
                     if(profiles.includes(btoa(profile))) {
                         sessionStorage.setItem('authenticated', 'true');
@@ -52,7 +52,7 @@ require('./reportcard.scss');
                 $scope.authenticated = true;
                 loadData()
                     .then(() => {
-                        location.hash = '#!/list';
+                        location.hash = '/list';
                     });
             }
         };
@@ -106,7 +106,7 @@ require('./reportcard.scss');
 
                 //back to view
                 $scope.saved = true;
-                location.hash = '#!/view';
+                location.hash = '/view';
             });
         };
 
@@ -221,7 +221,7 @@ require('./reportcard.scss');
         const refresh = () => {
             //handle browser refresh
             if(!$scope.report) {
-                location.hash = '#!/login';
+                location.hash = '/login';
                 history.pushState(null,  document.title, location.href);
             }
 
@@ -243,7 +243,7 @@ require('./reportcard.scss');
                                 $scope.report = report;
                             });
                     } else {
-                        location.hash = '#!/login';
+                        location.hash = '/login';
                     }
 
                     $scope.refresh = !refresh;
@@ -283,7 +283,7 @@ require('./reportcard.scss');
 })();
 
 (() => {
-    const config = ($routeProvider) => {
+    const config = ($routeProvider, $locationProvider) => {
         const context = location.pathname.split('/')[1];
 
         $routeProvider.
@@ -299,8 +299,10 @@ require('./reportcard.scss');
         otherwise({
             templateUrl: `/${context}/reportcard/login.html`
         });
+
+        $locationProvider.hashPrefix('');
     };
 
-    config.$inject = ['$routeProvider'];
+    config.$inject = ['$routeProvider', '$locationProvider'];
     app.config(config);
 })();
