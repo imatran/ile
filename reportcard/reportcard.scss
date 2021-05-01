@@ -175,6 +175,7 @@ html, body {
 
     div[class*="-c1"], div[class*="-c2"] {
         font-size: 16px;
+        line-height: 20px;
     }
 
     /** oral communication **/
@@ -183,7 +184,7 @@ html, body {
     }
 
     div[class*="oral-c"] {
-        top: 438px;
+        top: 437px;
     }
 
     .oral-g1 {
@@ -210,7 +211,7 @@ html, body {
     }
 
     div[class*="reading-c"] {
-        top: 619px;
+        top: 618px;
     }
 
     .reading-g1 {
@@ -237,7 +238,7 @@ html, body {
     }
 
     div[class*="writing-c"] {
-        top: 801px;
+        top: 800px;
     }
 
     .writing-g1 {
@@ -284,13 +285,13 @@ html, body {
         }
 
         .oral-c1 {
-            left: 332px;
-            width: 258px;
+            left: 331px;
+            width: 260px;
         }
 
         .oral-c2 {
-            left: 595px;
-            width: 264px;
+            left: 594px;
+            width: 266px;
         }
 
         div[class*="reading-c"] {
@@ -298,13 +299,13 @@ html, body {
         }
 
         .reading-c1 {
-            left: 332px;
-            width: 258px;
+            left: 331px;
+            width: 260px;
         }
 
         .reading-c2 {
-            left: 595px;
-            width: 264px;
+            left: 594px;
+            width: 266px;
         }
 
         div[class*="writing-c"] {
@@ -312,13 +313,13 @@ html, body {
         }
 
         .writing-c1 {
-            left: 332px;
-            width: 258px;
+            left: 331px;
+            width: 260px;
         }
 
         .writing-c2 {
-            left: 595px;
-            width: 264px;
+            left: 594px;
+            width: 266px;
         }
 
         textarea {
