@@ -11,7 +11,7 @@ const { airtable } = require('./app-secret.js');
 
                 tables: {
                     student: {
-                        fields: [ 'oen', 'name', 'lang', 'active' ]
+                        fields: [ 'oen', 'name', 'lang', 'grade', 'active' ]
                     },
 
                     reportcard: {

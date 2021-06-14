@@ -138,7 +138,30 @@ require('./reportcard.scss');
                     const pdf = new jsPDF();
 
                     pdf.addImage(img, 'JPEG', 0, 8, 210, 280);
-                    pdf.save(`${$scope.report.name}.pdf`);
+                    pdf.save(`${$scope.report.name} - Report Card.pdf`);
+                });
+        };
+
+        /**
+         * print
+         */
+        $scope.printParticipate = () => {
+            const html2canvas = require('html2canvas');
+            const jsPDF = require('jspdf');
+
+            //scroll to top
+            $('html').scrollTop(0, 0);
+
+            //capture screen then print
+            html2canvas(document.getElementById('participate'), {
+                width: 1080
+            })
+                .then(canvas => {
+                    const img = canvas.toDataURL('image/jpeg');
+                    const pdf = new jsPDF('l');
+
+                    pdf.addImage(img, 'JPEG', 0, 0, 296, 211);
+                    pdf.save(`${$scope.report.name} - Certificate of Participation.pdf`);
                 });
         };
 
@@ -258,7 +281,7 @@ require('./reportcard.scss');
 
             //sanitize student name
             let student = $scope.students.find(student => { return student.oen === report.oen; });
-            student && (report.name = student.name);
+            student && Object.assign(report, apputil.pick(student, 'name', 'grade'));
 
             //sanitize from configs
             Object.assign(report, apputil.pick(_config, 'lang', 'center', 'instructor'));
@@ -295,6 +318,12 @@ require('./reportcard.scss');
         }).
         when('/edit', {
             templateUrl: `/${context}/reportcard/edit.html`
+        }).
+        when('/participate', {
+            templateUrl: `/${context}/reportcard/participate.html`
+        }).
+        when('/graduate', {
+            templateUrl: `/${context}/reportcard/graduate.html`
         }).
         otherwise({
             templateUrl: `/${context}/reportcard/login.html`

@@ -28,7 +28,13 @@ html, body {
         margin: 0 auto;
     }
 
-    .view, .edit {
+    .participate, .graduate {
+        position: relative;
+        width: 1080px;
+        margin: 0 auto;
+    }
+
+    .view, .edit, .participate, .graduate {
         > div {
             position: absolute;
         }
@@ -69,6 +75,36 @@ html, body {
         width: 720px;
         margin: 0 auto;
         border: 1px solid #9d9d9d;
+
+        .name {
+            width: 300px;
+        }
+
+        .grade {
+            width: 100px;
+        }
+
+        .oen {
+            width: 180px;
+        }
+
+        .actions {
+            width: 140px;
+        }
+    }
+
+    .list .actions {
+        .view {
+            padding-right: 2px;
+        }
+
+        .edit {
+            padding-right: 6px;
+        }
+
+        .participate {
+            padding-right: 6px;
+        }
     }
 
     .image {
@@ -413,6 +449,38 @@ html, body {
     .back {
         top: 80px;
         left: 60px;
+    }
+
+    .participate {
+        .image {
+            width: 1080px;
+        }
+
+        .name {
+            width: 780px;
+            top: 370px;
+            text-align: center;
+            font-family: "Brush Script MT";
+            font-size: 48px;
+            color: #f6291b;
+        }
+
+        .grade {
+            top: 453px;
+            left: 691px;
+            color: #f6291b;
+            font-size: 20px;
+        }
+
+        .tool {
+            top: 20px;
+            left: 915px;
+        }
+
+        .back {
+            top: 20px;
+            left: 130px;
+        }
     }
 
     .table>tbody>tr>td {
