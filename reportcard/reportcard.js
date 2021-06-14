@@ -166,6 +166,29 @@ require('./reportcard.scss');
         };
 
         /**
+         * print
+         */
+        $scope.printGraduate = () => {
+            const html2canvas = require('html2canvas');
+            const jsPDF = require('jspdf');
+
+            //scroll to top
+            $('html').scrollTop(0, 0);
+
+            //capture screen then print
+            html2canvas(document.getElementById('graduate'), {
+                width: 1080
+            })
+                .then(canvas => {
+                    const img = canvas.toDataURL('image/jpeg');
+                    const pdf = new jsPDF('l');
+
+                    pdf.addImage(img, 'JPEG', 14, 0, 268, 206);
+                    pdf.save(`${$scope.report.name} - Grade 8 Certificate.pdf`);
+                });
+        };
+
+        /**
          * popup
          */
         $scope.popup = () => {

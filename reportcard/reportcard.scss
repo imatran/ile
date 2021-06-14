@@ -483,6 +483,31 @@ html, body {
         }
     }
 
+    .graduate {
+        .image {
+            width: 1080px;
+        }
+
+        .name {
+            width: 780px;
+            top: 269px;
+            text-align: center;
+            font-size: 60px;
+            color: #f6291b;
+            text-transform: uppercase;
+        }
+
+        .tool {
+            top: 20px;
+            left: 915px;
+        }
+
+        .back {
+            top: 20px;
+            left: 130px;
+        }
+    }
+
     .table>tbody>tr>td {
         line-height: unset;
     }
