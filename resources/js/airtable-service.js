@@ -202,14 +202,22 @@ const { app } = require('./angular-app.js');
          * sortByLocale
          *
          * @param array
-         * @param property
+         * @param properties
          */
-        service.sortByLocale = (array, property) => {
-            array && array.sort((v1, v2) => {
-                let p1 = typeof v1 === 'object' && property ? v1[property] : v1,
-                    p2 = typeof v2 === 'object' && property ? v2[property] : v2;
+        service.sortByLocale = (array, properties) => {
+            properties = Array.isArray(properties) ? properties : [properties];
 
-                return p1 && p2 ? p1.localeCompare(p2) : 0;
+            array && array.sort((v1, v2) => {
+                let sort = 0;
+
+                properties.forEach(property => {
+                    let p1 = typeof v1 === 'object' ? v1[property] : v1,
+                        p2 = typeof v2 === 'object' ? v2[property] : v2;
+
+                    sort = sort === 0 ? p1 && p2 ? p1.localeCompare(p2) : 0 : sort;
+                });
+
+                return sort;
             });
         };
 

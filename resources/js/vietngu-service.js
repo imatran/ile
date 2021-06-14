@@ -30,7 +30,7 @@ const { airtable } = require('./app-secret.js');
                 .then(values => {
                     let records = values.reduce((p, v) => { v.active && v.lang === lang && p.push(v); return p; }, []);
 
-                    AirtableService.sortByLocale(records, 'name');
+                    AirtableService.sortByLocale(records, ['grade', 'name']);
                     deferred.resolve(records);
                 });
 
