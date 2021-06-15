@@ -15,7 +15,6 @@
             <td class="oen">{{formatOEN(student.oen)}}</td>
             <td class="actions">
                 <a href="#/view" ng-click="view(student.oen)" title="View" class="view"><i class="glyphicon glyphicon-file"></i></a>&nbsp;
-                <a href="#/edit" ng-click="edit(student.oen)" title="Edit"class="edit"><i class="glyphicon glyphicon-edit"></i></a>
                 <a href="#/participate" ng-click="edit(student.oen)" title="Participation Certificate" class="participate"><i class="glyphicon glyphicon-bookmark"></i></a>
                 <a href="#/graduate" ng-click="edit(student.oen)" title="Graduation Certificate" class="graduate" ng-if="student.grade == 8"><i class="glyphicon glyphicon-education"></i></a>
             </td>

@@ -121,8 +121,39 @@ require('./reportcard.scss');
 
         /**
          * print
+         * @param type
          */
-        $scope.print = () => {
+        $scope.print = (type) => {
+            const configs = {
+                view: {
+                    name: `${$scope.report.name} - Report Card.pdf`,
+                    size: 920,
+                    x: 0,
+                    y: 8,
+                    width: 210,
+                    height: 280
+                },
+
+                participate: {
+                    name: `${$scope.report.name} - Certificate of Participation.pdf`,
+                    size: 1080,
+                    x: 0,
+                    y: 0,
+                    width: 296.5,
+                    height: 209.5
+                },
+
+                graduate: {
+                    name: `${$scope.report.name} - Grade 8 Certificate.pdf`,
+                    size: 1080,
+                    x: 14,
+                    y: 0,
+                    width: 268,
+                    height: 206
+                }
+            };
+
+            const config = configs[type];
             const html2canvas = require('html2canvas');
             const jsPDF = require('jspdf');
 
@@ -130,61 +161,15 @@ require('./reportcard.scss');
             $('html').scrollTop(0, 0);
 
             //capture screen then print
-            html2canvas(document.getElementById('view'), {
-                width: 920
+            html2canvas(document.getElementById('printarea'), {
+                width: config.size
             })
                 .then(canvas => {
                     const img = canvas.toDataURL('image/jpeg');
-                    const pdf = new jsPDF();
+                    const pdf = new jsPDF(config.height > config.width ? 'p' : 'l');
 
-                    pdf.addImage(img, 'JPEG', 0, 8, 210, 280);
-                    pdf.save(`${$scope.report.name} - Report Card.pdf`);
-                });
-        };
-
-        /**
-         * print
-         */
-        $scope.printParticipate = () => {
-            const html2canvas = require('html2canvas');
-            const jsPDF = require('jspdf');
-
-            //scroll to top
-            $('html').scrollTop(0, 0);
-
-            //capture screen then print
-            html2canvas(document.getElementById('participate'), {
-                width: 1080
-            })
-                .then(canvas => {
-                    const img = canvas.toDataURL('image/jpeg');
-                    const pdf = new jsPDF('l');
-
-                    pdf.addImage(img, 'JPEG', 0, 0, 296, 211);
-                    pdf.save(`${$scope.report.name} - Certificate of Participation.pdf`);
-                });
-        };
-
-        /**
-         * print
-         */
-        $scope.printGraduate = () => {
-            const html2canvas = require('html2canvas');
-            const jsPDF = require('jspdf');
-
-            //scroll to top
-            $('html').scrollTop(0, 0);
-
-            //capture screen then print
-            html2canvas(document.getElementById('graduate'), {
-                width: 1080
-            })
-                .then(canvas => {
-                    const img = canvas.toDataURL('image/jpeg');
-                    const pdf = new jsPDF('l');
-
-                    pdf.addImage(img, 'JPEG', 14, 0, 268, 206);
-                    pdf.save(`${$scope.report.name} - Grade 8 Certificate.pdf`);
+                    pdf.addImage(img, 'JPEG', config.x, config.y, config.width, config.height);
+                    pdf.save(config.name);
                 });
         };
 
