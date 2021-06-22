@@ -492,11 +492,19 @@ html, body {
 
         .name {
             width: 780px;
-            top: 284px;
+            top: 295px;
             text-align: center;
             font-size: 60px;
             color: #f6291b;
             text-transform: uppercase;
+        }
+
+        .year {
+            width: 780px;
+            top: 480px;
+            left: 150px;
+            text-align: center;
+            font-size: 16pt;
         }
 
         .tool {
