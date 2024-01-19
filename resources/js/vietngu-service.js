@@ -8,6 +8,7 @@ const { airtable } = require('./app-secret.js');
             config = {
                 url: atob(airtable.url.vietngu),
                 key: atob(airtable.key),
+                token: airtable.token,
 
                 tables: {
                     student: {
@@ -19,6 +20,8 @@ const { airtable } = require('./app-secret.js');
                     }
                 }
             };
+
+        $http.defaults.headers.common.Authorization = `Basic ${config.token}`;
 
         /**
          * loadStudents
