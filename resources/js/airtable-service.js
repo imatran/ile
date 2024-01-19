@@ -2,6 +2,7 @@ const { app } = require('./angular-app.js');
 
 (() => {
     const factory = ($q, $http, DelayHttp) => {
+		$http.defaults.headers.common.Authorization = `Basic ${config.token}`;
 
         let service = {};
 
@@ -16,7 +17,7 @@ const { app } = require('./angular-app.js');
          */
         service.getData = (table, config, refId) => {
             let deferred = $q.defer(),
-                url = `${config.url}/${table}${refId ? '/' + refId : ''}?api_key=${config.key}`,
+                url = `${config.url}/${table}${refId ? '/' + refId : ''}`,
                 results = [];
 
             let loadURL = (url, offset) => {
@@ -101,7 +102,7 @@ const { app } = require('./angular-app.js');
             let deferred = $q.defer();
 
             $http({
-                url: `${config.url}/${table}?api_key=${config.key}`,
+                url: `${config.url}/${table}`,
                 method: 'POST',
                 data: data
             })
@@ -134,7 +135,7 @@ const { app } = require('./angular-app.js');
             let deferred = $q.defer();
 
             $http({
-                url: `${config.url}/${table}/${refId}?api_key=${config.key}`,
+                url: `${config.url}/${table}/${refId}`,
                 method: 'PATCH',
                 data: data
             })
@@ -166,7 +167,7 @@ const { app } = require('./angular-app.js');
             let deferred = $q.defer();
 
             $http({
-                url: `${config.url}/${table}/${refId}?api_key=${config.key}`,
+                url: `${config.url}/${table}/${refId}`,
                 method: 'DELETE'
             })
                 .then(
