@@ -21,7 +21,7 @@ const { airtable } = require('./app-secret.js');
                 }
             };
 
-        $http.defaults.headers.common.Authorization = `Basic ${config.token}`;
+        $http.defaults.headers.common.Authorization = `Bearer ${config.token}`;
 
         /**
          * loadStudents
