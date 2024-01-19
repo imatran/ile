@@ -7,8 +7,7 @@ const { airtable } = require('./app-secret.js');
         let service = {},
             config = {
                 url: atob(airtable.url.vietngu),
-                key: atob(airtable.key),
-                token: airtable.token,
+                token: atob(airtable.token),
 
                 tables: {
                     student: {
