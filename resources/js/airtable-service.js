@@ -2,7 +2,7 @@ const { app } = require('./angular-app.js');
 
 (() => {
     const factory = ($q, $http, DelayHttp) => {
-		$http.defaults.headers.common.Authorization = `Basic ${config.token}`;
+        $http.defaults.headers.common.Authorization = `Basic ${config.token}`;
 
         let service = {};
 
